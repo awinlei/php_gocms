@@ -1,0 +1,14 @@
+go框架
+
+开始go web编程之前，使用php实现一个高性能的游戏后端，可复用的框架
+
+1,核心文件：
+	Go.php	核心类库
+	core/
+		Common.php		基础类库
+		Config.php		配置文件
+		Controller.php	控制器
+		Model.php		数据管理
+		View.php		前端显示
+		
+		

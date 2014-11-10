@@ -1,0 +1,15 @@
+
+++++++++++++++++++++++++++++++
+query sql:
+CREATE TABLE `lottery` (
+  `lottery_id` int(11) NOT NULL COMMENT '期号',
+  `num` int(11) NOT NULL COMMENT '奖中号码',
+  `gold` int(11) NOT NULL COMMENT '奖池黄金',
+  `r_gold` int(11) NOT NULL COMMENT '中奖黄金数',
+  PRIMARY KEY (`lottery_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+++++++++++++++++++++++++++++++
+mysql error:
+Table 'lottery' already exists
+++++++++++++++++++++++++++++++
