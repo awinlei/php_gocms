@@ -29,5 +29,15 @@ class Common
 	public static function getModelName($name='mysql') {
 		return "{$name}_Model";
 	}
+
+	/**
+	 * url导向
+	 * @param str url	地址
+	**/
+	public static function url_redirect($url){
+		header("Location: {$url}");
+		echo "<meta http-equiv=refresh content='0; url={$url}'>";
+		exit();
+	}
 	
 }

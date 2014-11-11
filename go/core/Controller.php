@@ -30,7 +30,7 @@ class Controller
 	 */
 	protected function get_model($conName, $isOne=false){
 
-		$conName = GoCore::getInstance("Common")->getModelName($conName);
+		$conName = Common::getModelName($conName);
 
 		if($isOne){
 			return new $conName();
@@ -39,7 +39,7 @@ class Controller
 		if(!isset($this->_model[$conName])){
 			$this->_model[$conName] = 0;
 		}
-		$this->_Object[$className]++;
+		$this->_model[$className]++;
 
 		//先加载model文件
 		GoCore::getInstance()->load_class($conName,MODEL_PATH,true);

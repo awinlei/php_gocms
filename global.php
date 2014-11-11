@@ -18,7 +18,6 @@ $system_path = rtrim($system_path, '/').'/';
 if (!is_dir($system_path)){
 	exit("Your system path wrong!");
 }
-
 define('BASEPATH', str_replace("\\","/",$system_path));
 
 if(is_dir($app_path)){

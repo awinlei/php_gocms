@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库底层封装类
+ * 数据库底层封装类[这里不区分数据处理和逻辑处理]
  * @authors [Wanglilei]
  * @email [awinlei@gmail.com]
  * @link [https://github.com/awinlei]
@@ -25,13 +25,13 @@ class Model
 	
 	
 	public function __construct(){
-			$config_path = GoCore::getInstance("Common")->getConfigPath();
+			$config_path = Common::getConfigPath();
 			require($config_path);
 			$this->_dbConnect();
 	}
 
 	private static function _dbConnect(){
-		$driver_path = GoCore::getInstance("Common")->getDbDriverPath();
+		$driver_path = Common::getDbDriverPath();
 		require($driver_path);
 		self::$db = new Mysql(DB_HOST, DB_USER, DB_PASS, DB_DATABASE, DB_PCONNECT, true);
 	}
@@ -63,7 +63,7 @@ class Model
 		return true;
 	}
 	//执行sql
-	protected function query($sql){
+	public function query($sql){
 		$ret = false;
 		if($this->checkQuery($sql)){
 			$ret = self::$db->query($sql);
@@ -74,7 +74,7 @@ class Model
 	}
 
 	//获得结果集
-	public function get_record(){
+	protected function get_record(){
 		return $this->records;
 	}
 
@@ -92,11 +92,62 @@ class Model
 		return self::$db->getInsertId();
 	}
 	
-	public function get_field($name){
+	protected function get_field($name){
 		if(isset($this->records[$name])){
 			return $this->records[$name];
 		}
 		return false;
+	}
+
+
+	/*
+	 * 	获得一条数据
+	 */
+	public function get_one($sql){
+		$data = array();
+		$this->query($sql);
+		if($this->next_record()){
+			$data = $this->get_record();
+		}
+		return $data;
+	}
+	/*
+	 *	获取一个结果集
+	 */
+	public function get_all($sql){
+		$data = array();
+		$this->query($sql);
+		while($this->next_record()){
+			$data[] = $this->get_record();
+		}
+		if(empty($data)){
+			$data = array();
+		}
+		return $data;
+	}
+	/*
+	 * 封装insert SQL
+	 */
+	public function add_one($table_name,$key_value){
+		$fileds = '';
+		$values = '';
+		foreach ($key_value as $key => $val){
+			if(!empty($key)){
+				$fields .= ",{$key}";
+			}
+			if(is_string($val)){
+				$val = addslashes($val);
+			}
+			if(is_array($val)){
+				$val = serialize($val);
+			}
+			$values .= is_numeric($val)? ",{$val}" : ",'{$val}'";
+		}
+		$fields = ltrim($fields,",");
+		$values = ltrim($values,",");
+		$sql = "insert into {$table_name}({$fields}) values({$values})";
+		$this->query($sql);
+		return $this->insertid();
 	}
 
 }

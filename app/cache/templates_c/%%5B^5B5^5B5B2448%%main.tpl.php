@@ -1,8 +1,8 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-05 23:11:13
+<?php /* Smarty version 2.6.18, created on 2014-11-11 18:08:38
          compiled from main/main.tpl */ ?>
   <body>
     <div id="header">
-      <h1><a href="./dashboard.html">GO 后台管理系统</a></h1>   
+      <h1><a href="./dashboard.html">GO AdminPanel</a></h1>   
     </div>
     
     <div id="search">
@@ -10,7 +10,7 @@
     <div id="user-nav" class="navbar navbar-inverse">
             <ul class="nav btn-group">
                 <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">用户设置</span></a></li>
-                <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">注销登录</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="index.php?controller=Main&command=logout"><i class="icon icon-share-alt"></i> <span class="text">注销登录</span></a></li>
             </ul>
         </div>
             
@@ -122,34 +122,19 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>     <!-- js加载 开始-->
 
-     <!-- js加载 -->
-     <?php unset($this->_sections['list']);
-$this->_sections['list']['name'] = 'list';
-$this->_sections['list']['loop'] = is_array($_loop=$this->_tpl_vars['js']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
-$this->_sections['list']['show'] = true;
-$this->_sections['list']['max'] = $this->_sections['list']['loop'];
-$this->_sections['list']['step'] = 1;
-$this->_sections['list']['start'] = $this->_sections['list']['step'] > 0 ? 0 : $this->_sections['list']['loop']-1;
-if ($this->_sections['list']['show']) {
-    $this->_sections['list']['total'] = $this->_sections['list']['loop'];
-    if ($this->_sections['list']['total'] == 0)
-        $this->_sections['list']['show'] = false;
-} else
-    $this->_sections['list']['total'] = 0;
-if ($this->_sections['list']['show']):
-
-            for ($this->_sections['list']['index'] = $this->_sections['list']['start'], $this->_sections['list']['iteration'] = 1;
-                 $this->_sections['list']['iteration'] <= $this->_sections['list']['total'];
-                 $this->_sections['list']['index'] += $this->_sections['list']['step'], $this->_sections['list']['iteration']++):
-$this->_sections['list']['rownum'] = $this->_sections['list']['iteration'];
-$this->_sections['list']['index_prev'] = $this->_sections['list']['index'] - $this->_sections['list']['step'];
-$this->_sections['list']['index_next'] = $this->_sections['list']['index'] + $this->_sections['list']['step'];
-$this->_sections['list']['first']      = ($this->_sections['list']['iteration'] == 1);
-$this->_sections['list']['last']       = ($this->_sections['list']['iteration'] == $this->_sections['list']['total']);
-?>
-     <?php echo $this->_tpl_vars['js'][$this->_sections['list']['index']]; ?>
-
-     <?php endfor; endif; ?>
-  </body>
+    <script src="<?php echo $this->_tpl_vars['static_path']; ?>
+js/jquery.min.js"></script>
+    <script src="<?php echo $this->_tpl_vars['static_path']; ?>
+js/jquery.ui.custom.js"></script>
+    <script src="<?php echo $this->_tpl_vars['static_path']; ?>
+js/bootstrap.min.js"></script>
+    <script src="<?php echo $this->_tpl_vars['static_path']; ?>
+js/fullcalendar.min.js"></script>
+    <script src="<?php echo $this->_tpl_vars['static_path']; ?>
+js/unicorn.js"></script>
+    <script src="<?php echo $this->_tpl_vars['static_path']; ?>
+js/unicorn.calendar.js"></script>
+    <!-- js加载 结束-->
+  </body>

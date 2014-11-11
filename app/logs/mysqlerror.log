@@ -1,8 +1,4 @@
-[2014-11-10 18:43:55]errno:1050;error:Table 'lottery' already exists;sql:CREATE TABLE `lottery` (
-  `lottery_id` int(11) NOT NULL COMMENT '期号',
-  `num` int(11) NOT NULL COMMENT '奖中号码',
-  `gold` int(11) NOT NULL COMMENT '奖池黄金',
-  `r_gold` int(11) NOT NULL COMMENT '中奖黄金数',
-  PRIMARY KEY (`lottery_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-;File:D:/www/myapp/svn/index.php;DB:go;debug:
+[2014-11-11 12:31:30]errno:1062;error:Duplicate entry 'wll' for key 'account';sql:insert into account(account,nick_name) values('wll','啦啦啦');File:D:/www/myapp/svn/index.php;DB:go;debug:
+[2014-11-11 13:41:19]errno:1062;error:Duplicate entry 'wll' for key 'account';sql:insert into account(account,nick_name) values('wll','啦啦啦');File:D:/www/myapp/svn/index.php;DB:go;debug:
+[2014-11-11 13:50:03]errno:1062;error:Duplicate entry 'wll' for key 'account';sql:insert into account(account,nick_name) values('wll','啦啦啦');File:D:/www/myapp/svn/index.php;DB:go;debug:
+[2014-11-11 14:32:20]errno:1062;error:Duplicate entry 'wll' for key 'account';sql:insert into account(account,nick_name) values('wll','啦啦啦');File:D:/www/myapp/svn/index.php;DB:go;debug:

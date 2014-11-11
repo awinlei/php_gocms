@@ -1,6 +1,6 @@
   <body>
     <div id="header">
-      <h1><a href="./dashboard.html">GO 后台管理系统</a></h1>   
+      <h1><a href="./dashboard.html">GO AdminPanel</a></h1>   
     </div>
     
     <div id="search">
@@ -8,7 +8,7 @@
     <div id="user-nav" class="navbar navbar-inverse">
             <ul class="nav btn-group">
                 <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">用户设置</span></a></li>
-                <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">注销登录</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="index.php?controller=Main&command=logout"><i class="icon icon-share-alt"></i> <span class="text">注销登录</span></a></li>
             </ul>
         </div>
             
@@ -120,10 +120,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>     <!-- js加载 开始-->
 
-     <!-- js加载 -->
-     {section name=list loop=$js}
-     {$js[list]}
-     {/section}
+    <script src="{$static_path}js/jquery.min.js"></script>
+    <script src="{$static_path}js/jquery.ui.custom.js"></script>
+    <script src="{$static_path}js/bootstrap.min.js"></script>
+    <script src="{$static_path}js/fullcalendar.min.js"></script>
+    <script src="{$static_path}js/unicorn.js"></script>
+    <script src="{$static_path}js/unicorn.calendar.js"></script>
+    <!-- js加载 结束-->
   </body>

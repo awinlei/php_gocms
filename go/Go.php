@@ -101,6 +101,10 @@ class GoCore
 	protected function parser_dispatch(){
 		$controller = isset($_REQUEST['controller']) ? $_REQUEST['controller'] : 'Main';
 		$command = isset($_REQUEST['command']) ? $_REQUEST['command'] : 'index';
+
+		file_put_contents(LOG_PATH."/uri.log",var_export($_REQUEST,true)."\n",FILE_APPEND);
+		file_put_contents(LOG_PATH."/uri.log",var_export($_POST,true)."\n",FILE_APPEND);
+
 		$this->_controller = ucfirst($controller);
 		$this->_command = $command;
 		

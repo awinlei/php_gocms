@@ -1,5 +1,5 @@
 <?php /* Smarty version 2.6.18, created on 2014-11-11 18:08:28
-         compiled from header.tpl */ ?>
+         compiled from header_login.tpl */ ?>
 <!DOCTYPE html>
 <html lang="en">
      <head>
@@ -12,10 +12,6 @@ css/bootstrap.min.css" />
           <link rel="stylesheet" href="<?php echo $this->_tpl_vars['static_path']; ?>
 css/bootstrap-responsive.min.css" />
           <link rel="stylesheet" href="<?php echo $this->_tpl_vars['static_path']; ?>
-css/fullcalendar.css" />
-          <link rel="stylesheet" href="<?php echo $this->_tpl_vars['static_path']; ?>
-css/unicorn.main.css" />
-          <link rel="stylesheet" href="<?php echo $this->_tpl_vars['static_path']; ?>
-css/unicorn.grey.css" class="skin-color" />
+css/unicorn.login.css" />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      </head>
